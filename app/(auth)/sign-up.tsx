@@ -6,6 +6,7 @@ import { images } from "../../constants";
 import FormField from "@/components/form-field";
 import CustomButton from "@/components/custom-button";
 import { Link } from "expo-router";
+import { createUser } from "@/lib/appwrite";
 
 const SignUp = () => {
   const [form, setForm] = useState<Record<string, any>>({
@@ -15,7 +16,9 @@ const SignUp = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const submit = () => {};
+  const submit = () => {
+    createUser();
+  };
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -54,7 +57,7 @@ const SignUp = () => {
           />
 
           <CustomButton
-            title="Sign-up"
+            title="Sign in"
             handlePress={submit}
             containerStyle="mt-7"
             isLoading={isSubmitting}
